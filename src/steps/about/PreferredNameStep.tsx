@@ -1,0 +1,30 @@
+import StepNav from "../../components/ui/StepNav"
+import { useOnboarding } from "../../onboarding/OnboardingContext"
+import Doodle from "../../components/Doodle"
+import { useState } from "react"
+
+export default function PreferredNameStep() {
+  const { state, setAbout, next, prev, completeStep } = useOnboarding()
+  const [val, setVal] = useState(state.about.preferredName || "")
+  const save = () => {
+    setAbout({ preferredName: val || undefined })
+    completeStep()
+    next()
+  }
+  return (
+    <div className="max-w-[640px]">
+      <div className="flex items-start justify-between">
+        <h1 className="text-2xl font-semibold text-zinc-800">What should we call you?</h1>
+        <Doodle index={1} />
+      </div>
+      <input
+        value={val}
+        onChange={(e)=>setVal(e.target.value)}
+        placeholder="Preferred name"
+        className="mt-6 w-full rounded-xl border border-zinc-300 px-4 py-3 text-base"
+      />
+      <div className="mt-2 text-sm text-zinc-500">Optional</div>
+      <StepNav onBack={prev} onNext={save} />
+    </div>
+  )
+}
