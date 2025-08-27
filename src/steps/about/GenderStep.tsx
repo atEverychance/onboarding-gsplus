@@ -12,10 +12,9 @@ const opts = [
 ] as const
 
 export default function GenderStep() {
-  const { state, setAbout, next, prev, completeStep } = useOnboarding()
+  const { state, setAbout, next, prev } = useOnboarding()
   const select = (v: any) => {
     setAbout({ gender: v })
-    completeStep()
   }
   return (
     <div className="max-w-[640px]">

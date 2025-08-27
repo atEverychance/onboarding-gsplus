@@ -4,11 +4,10 @@ import Doodle from "../../components/Doodle"
 import { useState } from "react"
 
 export default function PreferredNameStep() {
-  const { state, setAbout, next, prev, completeStep } = useOnboarding()
+  const { state, setAbout, next, prev } = useOnboarding()
   const [val, setVal] = useState(state.about.preferredName || "")
   const save = () => {
     setAbout({ preferredName: val || undefined })
-    completeStep()
     next()
   }
   return (

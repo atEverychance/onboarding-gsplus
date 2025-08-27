@@ -3,9 +3,10 @@ type Props = {
   onNext?: () => void
   nextDisabled?: boolean
   nextLabel?: string
+  hideSaveLink?: boolean
 }
 
-export default function StepNav({ onBack, onNext, nextDisabled, nextLabel }: Props) {
+export default function StepNav({ onBack, onNext, nextDisabled, nextLabel, hideSaveLink }: Props) {
   return (
     <div className="mt-10 flex items-center gap-4">
       <button
@@ -21,9 +22,11 @@ export default function StepNav({ onBack, onNext, nextDisabled, nextLabel }: Pro
       >
         {nextLabel || "Next"}
       </button>
-      <a href="#" className="text-sm text-[#1E6E68] underline" onClick={(e)=>e.preventDefault()}>
-        Save and come back later
-      </a>
+      {!hideSaveLink && (
+        <a href="#" className="text-sm text-[#1E6E68] underline" onClick={(e)=>e.preventDefault()}>
+          Save and come back later
+        </a>
+      )}
     </div>
   )
 }

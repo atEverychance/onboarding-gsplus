@@ -3,7 +3,7 @@ import StepNav from "../../components/ui/StepNav"
 import Doodle from "../../components/Doodle"
 
 export default function GoalsInterstitial() {
-  const { state, next, prev } = useOnboarding()
+  const { state, next, prev, completeStep } = useOnboarding()
   const name = state.about.preferredName || "you"
   const pronouns = state.about.pronouns
   
@@ -61,7 +61,11 @@ export default function GoalsInterstitial() {
         </p>
       </div>
       
-      <StepNav onBack={prev} onNext={next} nextLabel="Continue setup" />
+      <StepNav onBack={prev} onNext={() => {
+        completeStep("goals")
+        completeStep("challenges")
+        next()
+      }} nextLabel="Continue setup" />
     </div>
   )
 }

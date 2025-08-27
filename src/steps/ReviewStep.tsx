@@ -16,9 +16,8 @@ export default function ReviewStep() {
         <div><strong>Household:</strong> {state.household.hasDependents ? `${state.household.dependents.length} dependents` : "No dependents"}</div>
         <div><strong>Goals:</strong> {(state.goals||[]).join(", ") || "-"}</div>
         <div><strong>Challenges:</strong> {(state.challenges||[]).join(", ") || "-"}</div>
-        <div><strong>Preferences:</strong> {(state.preferences?.modalities||[]).join(", ") || "-"}; {(state.preferences?.times||[]).join(", ") || "-"}; {(state.preferences?.careLanguages||[]).join(", ") || "-"}</div>
         <div><strong>Claims:</strong> {state.claims?.willSubmitClaims ? "Will submit" : "No/unsure"}</div>
-        <div><strong>Notifications:</strong> {(state.notifications?.channels||[]).join(", ") || "-"} {state.notifications?.frequency ? `(${state.notifications?.frequency})` : ""}</div>
+        <div><strong>Notifications:</strong> {(state.notifications?.channels||[]).join(", ") || "-"} {state.notifications?.phone ? `(${state.notifications?.phone})` : ""}</div>
       </div>
       <div className="mt-6">
         <StepNav onBack={prev} onNext={next} nextLabel="Finish" />

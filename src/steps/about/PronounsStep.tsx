@@ -11,10 +11,9 @@ const opts = [
 ] as const
 
 export default function PronounsStep() {
-  const { state, setAbout, next, prev, completeStep } = useOnboarding()
+  const { state, setAbout, next, prev } = useOnboarding()
   const select = (v: any) => {
     setAbout({ pronouns: v })
-    completeStep()
   }
   return (
     <div className="max-w-[640px]">

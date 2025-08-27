@@ -4,10 +4,9 @@ import { useOnboarding } from "../../onboarding/OnboardingContext"
 import Doodle from "../../components/Doodle"
 
 export default function TechComfortStep() {
-  const { state, setAbout, next, prev, completeStep } = useOnboarding()
+  const { state, setAbout, next, prev } = useOnboarding()
   const setVal = (v: any) => {
     setAbout({ techComfort: v })
-    completeStep()
   }
   return (
     <div className="max-w-[640px]">

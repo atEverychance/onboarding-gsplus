@@ -6,10 +6,9 @@ import Doodle from "../../components/Doodle"
 const options = ["u17","18-24","25-34","35-44","45-54","55-64","65+"] as const
 
 export default function AgeStep() {
-  const { state, setAbout, next, prev, completeStep } = useOnboarding()
+  const { state, setAbout, next, prev } = useOnboarding()
   const select = (v: any) => {
     setAbout({ ageRange: v })
-    completeStep()
   }
   return (
     <div className="max-w-[640px]">

@@ -15,7 +15,7 @@ const allGoals = [
 ] as const
 
 export default function GoalsStep() {
-  const { state, setGoals, next, prev, completeStep } = useOnboarding()
+  const { state, setGoals, next, prev } = useOnboarding()
   const goals = state.goals || []
   const toggle = (g: string) => {
     const set = new Set(goals)
@@ -26,7 +26,6 @@ export default function GoalsStep() {
     }
     const arr = Array.from(set).slice(0, 3)
     setGoals(arr)
-    completeStep()
   }
   const name = state.about.preferredName
 

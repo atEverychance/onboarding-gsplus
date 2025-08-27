@@ -16,7 +16,7 @@ const allChallenges = [
 ] as const
 
 export default function ChallengesStep() {
-  const { state, setChallenges, next, prev, completeStep } = useOnboarding()
+  const { state, setChallenges, next, prev } = useOnboarding()
   const list = state.challenges || []
   const toggle = (g: string) => {
     const set = new Set(list)
@@ -26,7 +26,6 @@ export default function ChallengesStep() {
       set.add(g)
     }
     setChallenges(Array.from(set))
-    completeStep()
   }
   const name = state.about.preferredName
 
