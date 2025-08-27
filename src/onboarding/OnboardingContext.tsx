@@ -6,11 +6,10 @@ const STORAGE_KEY = "onboarding_draft_v1"
 
 const initialState: OnboardingState = {
   language: undefined,
-  about: { careLanguages: [] },
+  about: {},
   household: { dependents: [], hasDependents: undefined },
   goals: [],
   challenges: [],
-  preferences: { careLanguages: [] },
   claims: {},
   notifications: {},
   currentStepId: "language",
@@ -25,7 +24,6 @@ type Ctx = {
   setHousehold: (patch: Partial<OnboardingState["household"]>) => void
   setGoals: (vals: string[]) => void
   setChallenges: (vals: string[]) => void
-  setPreferences: (patch: Partial<OnboardingState["preferences"]>) => void
   setClaims: (patch: Partial<OnboardingState["claims"]>) => void
   setNotifications: (patch: Partial<OnboardingState["notifications"]>) => void
   addDependent: (d: Omit<Dependent, "id">) => void
@@ -46,7 +44,9 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
     try {
       const raw = localStorage.getItem(STORAGE_KEY)
       if (raw) return JSON.parse(raw)
-    } catch {}
+    } catch (error) {
+      console.warn('Failed to parse stored onboarding state:', error)
+    }
     return initialState
   })
 
@@ -90,8 +90,6 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
       setState((s) => ({ ...s, goals: vals })),
     setChallenges: (vals) =>
       setState((s) => ({ ...s, challenges: vals })),
-    setPreferences: (patch) =>
-      setState((s) => ({ ...s, preferences: { ...(s.preferences || {}), ...patch } })),
     setClaims: (patch) =>
       setState((s) => ({ ...s, claims: { ...(s.claims || {}), ...patch } })),
     setNotifications: (patch) =>

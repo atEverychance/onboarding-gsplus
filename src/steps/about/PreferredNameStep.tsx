@@ -4,11 +4,10 @@ import Doodle from "../../components/Doodle"
 import { useState } from "react"
 
 export default function PreferredNameStep() {
-  const { state, setAbout, next, prev, completeStep } = useOnboarding()
+  const { state, setAbout, next, prev } = useOnboarding()
   const [val, setVal] = useState(state.about.preferredName || "")
   const save = () => {
     setAbout({ preferredName: val || undefined })
-    completeStep()
     next()
   }
   return (
@@ -23,7 +22,7 @@ export default function PreferredNameStep() {
         placeholder="Preferred name"
         className="mt-6 w-full rounded-xl border border-zinc-300 px-4 py-3 text-base"
       />
-      <div className="mt-2 text-sm text-zinc-500">Optional</div>
+      <div className="mt-2 text-sm text-zinc-500">We'd love to personalize your experience (optional)</div>
       <StepNav onBack={prev} onNext={save} />
     </div>
   )

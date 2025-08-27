@@ -1,9 +1,11 @@
 import { useOnboarding } from "../onboarding/OnboardingContext"
 import { STEPS } from "../onboarding/steps"
+import { getThemeColor } from "../utils/theme"
 
 export default function LeftOverview() {
   const { state, goTo } = useOnboarding()
   const current = state.currentStepId
+  const themeColor = getThemeColor(state.about.gender)
 
   const visible = STEPS.filter((s) => (s.when ? s.when(state) : true))
 
@@ -58,11 +60,12 @@ export default function LeftOverview() {
                 <span
                   className={`flex h-5 w-5 items-center justify-center rounded-full border leading-none ${
                     done
-                      ? "border-[#1E6E68] text-[#1E6E68]"
+                      ? "text-white"
                       : active
                       ? "border-zinc-400 text-zinc-400"
                       : "border-zinc-300 text-zinc-300"
                   }`}
+                  style={done ? { backgroundColor: themeColor, borderColor: themeColor } : {}}
                 >
                   {done ? "✓" : active ? "◉" : "○"}
                 </span>

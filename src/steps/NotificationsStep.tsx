@@ -1,46 +1,100 @@
 import { useOnboarding } from "../onboarding/OnboardingContext"
 import StepNav from "../components/ui/StepNav"
 import Doodle from "../components/Doodle"
-import Chip from "../components/ui/Chip"
+import { useState } from "react"
 
-const channels = ["email","sms","push"] as const
+type Channel = "email" | "sms"
 
 export default function NotificationsStep() {
   const { state, setNotifications, next, prev, completeStep } = useOnboarding()
   const notif = state.notifications || {}
-  const toggleChannel = (c: (typeof channels)[number]) => {
-    const set = new Set<(typeof channels)[number]>(notif.channels || [])
-    set.has(c) ? set.delete(c) : set.add(c)
-    setNotifications({ channels: Array.from(set) })
+  const [phone, setPhone] = useState(notif.phone || "")
+  const name = state.about.preferredName || "you"
+  
+  const toggleChannel = (c: Channel) => {
+    const set = new Set(notif.channels || [])
+    if (set.has(c)) {
+      set.delete(c)
+    } else {
+      set.add(c)
+    }
+    const newNotif = { ...notif, channels: Array.from(set) }
+    if (c === "sms" && !set.has(c)) {
+      newNotif.phone = undefined
+      setPhone("")
+    }
+    setNotifications(newNotif)
     completeStep()
   }
-  const setFreq = (f: "important" | "regular") => {
-    setNotifications({ frequency: f })
-    completeStep()
+  
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    setPhone(value)
+    setNotifications({ ...notif, phone: value })
   }
+
+  const canProceed = !(notif.channels || []).includes("sms") || ((notif.channels || []).includes("sms") && phone.trim().length > 0)
+
   return (
     <div className="max-w-[640px]">
       <div className="flex items-start justify-between">
-        <h1 className="text-2xl font-semibold text-zinc-800">Notifications</h1>
+        <div>
+          <h1 className="text-2xl font-semibold text-zinc-800">How would you like to stay connected, {name}?</h1>
+          <p className="mt-2 text-zinc-600">We'll only send you important updates about your health benefits</p>
+        </div>
         <Doodle index={0} />
       </div>
-      <div className="mt-6">
-        <div className="mb-2 text-sm text-zinc-600">How should we reach you?</div>
-        <div className="flex flex-wrap gap-3">
-          {channels.map((c)=>(
-            <Chip key={c} label={c === "sms" ? "SMS" : c.charAt(0).toUpperCase()+c.slice(1)} selected={(notif.channels||[]).includes(c)} onClick={()=>toggleChannel(c)} />
-          ))}
-        </div>
+      
+      <div className="mt-6 space-y-4">
+        <label className="flex items-center gap-3 cursor-pointer p-4 border border-zinc-200 rounded-lg hover:bg-zinc-50">
+          <input
+            type="checkbox"
+            checked={(notif.channels || []).includes("email")}
+            onChange={() => toggleChannel("email")}
+            className="w-4 h-4 text-[#1E6E68] border-zinc-300 rounded focus:ring-[#1E6E68]"
+          />
+          <div>
+            <span className="text-zinc-800 font-medium">Email notifications</span>
+            <p className="text-sm text-zinc-600">Get updates about your benefits and health resources</p>
+          </div>
+        </label>
+        
+        <label className="flex items-center gap-3 cursor-pointer p-4 border border-zinc-200 rounded-lg hover:bg-zinc-50">
+          <input
+            type="checkbox"
+            checked={(notif.channels || []).includes("sms")}
+            onChange={() => toggleChannel("sms")}
+            className="w-4 h-4 text-[#1E6E68] border-zinc-300 rounded focus:ring-[#1E6E68]"
+          />
+          <div>
+            <span className="text-zinc-800 font-medium">SMS notifications</span>
+            <p className="text-sm text-zinc-600">Get quick reminders and urgent health updates</p>
+          </div>
+        </label>
+        
+        {(notif.channels || []).includes("sms") && (
+          <div className="ml-7 mt-3">
+            <input
+              type="tel"
+              value={phone}
+              onChange={handlePhoneChange}
+              placeholder="Phone number (required for SMS)"
+              className="w-full rounded-xl border border-zinc-300 px-4 py-3 text-base"
+              required
+            />
+            {(notif.channels || []).includes("sms") && !phone.trim() && (
+              <p className="mt-1 text-sm text-red-600">Phone number is required for SMS notifications</p>
+            )}
+          </div>
+        )}
       </div>
+      
       <div className="mt-6">
-        <div className="mb-2 text-sm text-zinc-600">How often?</div>
-        <div className="flex gap-3">
-          <Chip label="Only important" selected={notif.frequency==="important"} onClick={()=>setFreq("important")} />
-          <Chip label="Regular updates" selected={notif.frequency==="regular"} onClick={()=>setFreq("regular")} />
-        </div>
-      </div>
-      <div className="mt-6">
-        <StepNav onBack={prev} onNext={next} />
+        <StepNav 
+          onBack={prev} 
+          onNext={canProceed ? next : undefined}
+          nextDisabled={!canProceed}
+        />
       </div>
     </div>
   )

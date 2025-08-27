@@ -15,19 +15,29 @@ const allGoals = [
 ] as const
 
 export default function GoalsStep() {
-  const { state, setGoals, next, prev, completeStep } = useOnboarding()
+  const { state, setGoals, next, prev } = useOnboarding()
   const goals = state.goals || []
   const toggle = (g: string) => {
     const set = new Set(goals)
-    set.has(g) ? set.delete(g) : set.add(g)
+    if (set.has(g)) {
+      set.delete(g)
+    } else {
+      set.add(g)
+    }
     const arr = Array.from(set).slice(0, 3)
     setGoals(arr)
-    completeStep()
   }
+  const name = state.about.preferredName
+
   return (
     <div className="max-w-[640px]">
       <div className="flex items-start justify-between">
-        <h1 className="text-2xl font-semibold text-zinc-800">Pick up to 3 goals</h1>
+        <div>
+          <h1 className="text-2xl font-semibold text-zinc-800">
+            {name ? `What are your health goals, ${name}?` : "Pick up to 3 goals"}
+          </h1>
+          <p className="mt-2 text-zinc-600">Select all that apply - we'll help you achieve them</p>
+        </div>
         <Doodle index={0} />
       </div>
       <div className="mt-6 flex flex-wrap gap-3">

@@ -4,10 +4,9 @@ import { useOnboarding } from "../../onboarding/OnboardingContext"
 import Doodle from "../../components/Doodle"
 
 export default function CaregiverStep() {
-  const { state, setAbout, next, prev, completeStep } = useOnboarding()
+  const { state, setAbout, next, prev } = useOnboarding()
   const setVal = (v: boolean) => {
     setAbout({ caregiver: v })
-    completeStep()
   }
   return (
     <div className="max-w-[640px]">

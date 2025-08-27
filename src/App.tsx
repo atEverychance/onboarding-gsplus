@@ -8,18 +8,19 @@ import AgeStep from "./steps/about/AgeStep"
 import GenderStep from "./steps/about/GenderStep"
 import PronounsStep from "./steps/about/PronounsStep"
 import PreferredNameStep from "./steps/about/PreferredNameStep"
-import CareLanguageStep from "./steps/about/CareLanguageStep"
 import CaregiverStep from "./steps/about/CaregiverStep"
 import TechComfortStep from "./steps/about/TechComfortStep"
+import AboutYouInterstitial from "./steps/interstitials/AboutYouInterstitial"
 import HasDependentsStep from "./steps/household/HasDependentsStep"
 import DependentsForm from "./steps/household/DependentsForm"
 import GoalsStep from "./steps/GoalsStep"
 import ChallengesStep from "./steps/ChallengesStep"
-import PreferencesStep from "./steps/PreferencesStep"
+import GoalsInterstitial from "./steps/interstitials/GoalsInterstitial"
 import ClaimsIntentStep from "./steps/claims/ClaimsIntentStep"
 import DirectDepositStep from "./steps/claims/DirectDepositStep"
 import NotificationsStep from "./steps/NotificationsStep"
 import ReviewStep from "./steps/ReviewStep"
+import ServicesInterstitial from "./steps/interstitials/ServicesInterstitial"
 
 function StepRenderer() {
   const { state } = useOnboarding()
@@ -29,18 +30,19 @@ function StepRenderer() {
   if (id === "about.age") return <AgeStep />
   if (id === "about.pronouns") return <PronounsStep />
   if (id === "about.name") return <PreferredNameStep />
-  if (id === "about.careLang") return <CareLanguageStep />
   if (id === "about.caregiver") return <CaregiverStep />
   if (id === "about.tech") return <TechComfortStep />
+  if (id === "interstitial.aboutyou") return <AboutYouInterstitial />
   if (id === "household.hasDeps") return <HasDependentsStep />
   if (id === "household.manageDeps") return <DependentsForm />
   if (id === "goals") return <GoalsStep />
   if (id === "challenges") return <ChallengesStep />
-  if (id === "prefs") return <PreferencesStep />
+  if (id === "interstitial.goals") return <GoalsInterstitial />
   if (id === "claims.intent") return <ClaimsIntentStep />
   if (id === "claims.deposit") return <DirectDepositStep />
   if (id === "notifications") return <NotificationsStep />
   if (id === "review") return <ReviewStep />
+  if (id === "interstitial.services") return <ServicesInterstitial />
   return <div />
 }
 
