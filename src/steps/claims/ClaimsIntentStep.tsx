@@ -14,7 +14,7 @@ export default function ClaimsIntentStep() {
   return (
     <div className="max-w-[640px]">
       <div className="flex items-start justify-between">
-        <h1 className="text-2xl font-semibold text-zinc-800">Planning to submit claims for reimbursement?</h1>
+        <h1 className="text-2xl font-semibold text-zinc-800">Will you be submitting claims with us?</h1>
         <Doodle index={0} />
       </div>
       <div className="mt-6 grid grid-cols-2 gap-4 max-w-md">

@@ -2,7 +2,6 @@ import { useState } from "react"
 import { useOnboarding } from "../../onboarding/OnboardingContext"
 import StepNav from "../../components/ui/StepNav"
 import Doodle from "../../components/Doodle"
-import Chip from "../../components/ui/Chip"
 
 export default function DirectDepositStep() {
   const { state, setClaims, next, prev, completeStep } = useOnboarding()
@@ -31,9 +30,11 @@ export default function DirectDepositStep() {
   return (
     <div className="max-w-[640px]">
       <div className="flex items-start justify-between">
-        <h1 className="text-2xl font-semibold text-zinc-800">Direct deposit details</h1>
+        <h1 className="text-2xl font-semibold text-zinc-800">Set up direct deposit</h1>
         <Doodle index={1} />
       </div>
+      <div className="mt-2 text-sm text-zinc-500">Payments go straight to your account—fast and secure.</div>
+
       <div className="mt-6 grid gap-4 max-w-md">
         <label className="text-sm text-zinc-700">
           Name on account

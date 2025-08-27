@@ -11,7 +11,7 @@ export default function ServicesInterstitial() {
       <div className="flex items-start justify-between">
         <div>
           <h1 className="text-2xl font-semibold text-zinc-800">Welcome to GreenShield+, {name}!</h1>
-          <p className="mt-2 text-lg text-zinc-600">Your comprehensive health benefits are ready 🌟</p>
+          <p className="mt-2 text-lg text-zinc-600">Your benefits are ready to go. 🌟</p>
         </div>
         <Doodle index={0} />
       </div>

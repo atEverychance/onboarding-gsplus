@@ -22,7 +22,7 @@ export default function PreferredNameStep() {
         placeholder="Preferred name"
         className="mt-6 w-full rounded-xl border border-zinc-300 px-4 py-3 text-base"
       />
-      <div className="mt-2 text-sm text-zinc-500">We'd love to personalize your experience (optional)</div>
+      <div className="mt-2 text-sm text-zinc-500">If you go by a different name, add it here. Optional.</div>
       <StepNav onBack={prev} onNext={save} />
     </div>
   )

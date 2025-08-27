@@ -47,7 +47,7 @@ export default function AboutYouInterstitial() {
       <div className="flex items-start justify-between">
         <div>
           <h1 className="text-2xl font-semibold text-zinc-800">{content.title}</h1>
-          <p className="mt-2 text-lg text-zinc-600">Hi {name}! 👋</p>
+          <p className="mt-2 text-lg text-zinc-600">Hey {name}! 👋 Glad you’re here.</p>
         </div>
         <Doodle index={1} />
       </div>
