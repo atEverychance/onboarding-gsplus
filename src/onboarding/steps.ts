@@ -33,6 +33,6 @@ export const STEPS: StepDef[] = [
   },
   { id: "notifications", label: "Notifications" },
   { id: "review", label: "Review" },
-  { id: "interstitial.services", label: "Your GreenShield+ Benefits" },
+  { id: "interstitial.services", label: "Get Started" },
 ]
 export const __steps_marker = true
