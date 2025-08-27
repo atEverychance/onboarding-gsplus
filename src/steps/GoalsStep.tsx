@@ -36,7 +36,7 @@ export default function GoalsStep() {
           <h1 className="text-2xl font-semibold text-zinc-800">
             {name ? `What are your health goals, ${name}?` : "Pick up to 3 goals"}
           </h1>
-          <p className="mt-2 text-zinc-600">Select all that apply - we'll help you achieve them</p>
+          <p className="mt-2 text-zinc-600">Pick what fits. We’ll help you make real progress.</p>
         </div>
         <Doodle index={0} />
       </div>

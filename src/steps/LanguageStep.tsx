@@ -13,8 +13,8 @@ export default function LanguageStep() {
     <div className="max-w-[640px]">
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-zinc-800">Let's start with your language preference</h1>
-          <p className="mt-2 text-sm text-zinc-500">We'll use this language for all your communications with GreenShield+ to make sure you feel comfortable every step of the way</p>
+          <h1 className="text-2xl font-semibold text-zinc-800">Let’s start with your language</h1>
+          <p className="mt-2 text-sm text-zinc-500">We’ll use this for all GreenShield+ messages so everything feels easy and familiar.</p>
         </div>
         <Doodle index={0} />
       </div>

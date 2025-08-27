@@ -36,7 +36,7 @@ export default function ChallengesStep() {
           <h1 className="text-2xl font-semibold text-zinc-800">
             What challenges do you face with healthcare{name ? `, ${name}` : ""}?
           </h1>
-          <p className="mt-2 text-zinc-600">Help us understand so we can better support you (optional)</p>
+          <p className="mt-2 text-zinc-600">This helps us recommend support that actually fits. Optional.</p>
         </div>
         <Doodle index={1} />
       </div>

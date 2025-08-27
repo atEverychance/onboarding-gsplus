@@ -26,8 +26,8 @@ export default function GoalsInterstitial() {
     <div className="max-w-[640px]">
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-zinc-800">We're Here to Support {name}</h1>
-          <p className="mt-2 text-lg text-zinc-600">Your goals matter to us 🎯</p>
+          <h1 className="text-2xl font-semibold text-zinc-800">We’re here to support {name}</h1>
+          <p className="mt-2 text-lg text-zinc-600">Your goals matter to us. 🎯</p>
         </div>
         <Doodle index={2} />
       </div>

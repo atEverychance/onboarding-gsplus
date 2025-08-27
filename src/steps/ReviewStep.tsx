@@ -7,7 +7,7 @@ export default function ReviewStep() {
   return (
     <div className="max-w-[720px]">
       <div className="flex items-start justify-between">
-        <h1 className="text-2xl font-semibold text-zinc-800">Review</h1>
+        <h1 className="text-2xl font-semibold text-zinc-800">Quick check before we wrap up</h1>
         <Doodle index={2} />
       </div>
       <div className="mt-6 space-y-2 text-sm text-zinc-700">
@@ -20,7 +20,7 @@ export default function ReviewStep() {
         <div><strong>Notifications:</strong> {(state.notifications?.channels||[]).join(", ") || "-"} {state.notifications?.phone ? `(${state.notifications?.phone})` : ""}</div>
       </div>
       <div className="mt-6">
-        <StepNav onBack={prev} onNext={next} nextLabel="Finish" />
+        <StepNav onBack={prev} onNext={next} nextLabel="Looks good—finish up" />
       </div>
     </div>
   )

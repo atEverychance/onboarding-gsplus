@@ -53,8 +53,8 @@ export default function DependentsForm() {
     <div className="max-w-[740px]">
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-zinc-800">Add your dependents</h1>
-          <p className="mt-2 text-sm text-zinc-500">Add as many as you need. You can edit later.</p>
+          <h1 className="text-2xl font-semibold text-zinc-800">Let’s add your dependents</h1>
+          <p className="mt-2 text-sm text-zinc-500">Add as many as you need. You can always edit or remove them later.</p>
         </div>
         <Doodle index={0} />
       </div>

@@ -18,6 +18,8 @@ export default function HasDependentsStep() {
       <div className="mt-6 flex gap-3">
         <Chip label="Yes" selected={state.household.hasDependents===true} onClick={()=>setVal(true)} />
         <Chip label="No" selected={state.household.hasDependents===false} onClick={()=>setVal(false)} />
+      <div className="mt-6 text-sm text-zinc-500">Not sure? You can add them later.</div>
+
       </div>
       <StepNav onBack={prev} onNext={next} />
     </div>
