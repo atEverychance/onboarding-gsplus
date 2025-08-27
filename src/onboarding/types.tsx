@@ -29,7 +29,6 @@ export type AboutYou = {
   gender?: Gender
   pronouns?: Pronouns
   preferredName?: string
-  careLanguages: Language[]
   caregiver?: boolean
   techComfort?: TechComfort
 }
@@ -39,11 +38,6 @@ export type Household = {
   dependents: Dependent[]
 }
 
-export type CarePreferences = {
-  modalities?: ("chat" | "phone" | "video" | "inperson")[]
-  times?: ("weekdays" | "evenings" | "weekends")[]
-  careLanguages?: Language[]
-}
 
 export type ClaimsInfo = {
   willSubmitClaims?: boolean
@@ -56,7 +50,7 @@ export type ClaimsInfo = {
 
 export type Notifications = {
   channels?: ("email" | "sms" | "push")[]
-  frequency?: "important" | "regular"
+  phone?: string
 }
 
 export type OnboardingState = {
@@ -65,7 +59,6 @@ export type OnboardingState = {
   household: Household
   goals?: string[]
   challenges?: string[]
-  preferences?: CarePreferences
   claims?: ClaimsInfo
   notifications?: Notifications
   currentStepId: string

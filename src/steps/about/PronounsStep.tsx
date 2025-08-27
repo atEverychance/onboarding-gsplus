@@ -19,7 +19,7 @@ export default function PronounsStep() {
   return (
     <div className="max-w-[640px]">
       <div className="flex items-start justify-between">
-        <h1 className="text-2xl font-semibold text-zinc-800">Your pronouns</h1>
+        <h1 className="text-2xl font-semibold text-zinc-800">What are your pronouns?</h1>
         <Doodle index={0} />
       </div>
       <div className="mt-6 flex flex-wrap gap-3">
@@ -28,8 +28,8 @@ export default function PronounsStep() {
         ))}
       </div>
       <div className="mt-6 text-sm text-zinc-500">
-        Optional
-        <button className="ml-4 text-[#1E6E68] underline" onClick={next}>Skip</button>
+        We want to address you respectfully (optional)
+        <button className="ml-4 text-[#1E6E68] underline" onClick={next}>Skip for now</button>
       </div>
       <StepNav onBack={prev} onNext={next} />
     </div>

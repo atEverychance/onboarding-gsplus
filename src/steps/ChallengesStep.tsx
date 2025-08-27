@@ -20,14 +20,25 @@ export default function ChallengesStep() {
   const list = state.challenges || []
   const toggle = (g: string) => {
     const set = new Set(list)
-    set.has(g) ? set.delete(g) : set.add(g)
+    if (set.has(g)) {
+      set.delete(g)
+    } else {
+      set.add(g)
+    }
     setChallenges(Array.from(set))
     completeStep()
   }
+  const name = state.about.preferredName
+
   return (
     <div className="max-w-[640px]">
       <div className="flex items-start justify-between">
-        <h1 className="text-2xl font-semibold text-zinc-800">Any current challenges? (optional)</h1>
+        <div>
+          <h1 className="text-2xl font-semibold text-zinc-800">
+            What challenges do you face with healthcare{name ? `, ${name}` : ""}?
+          </h1>
+          <p className="mt-2 text-zinc-600">Help us understand so we can better support you (optional)</p>
+        </div>
         <Doodle index={1} />
       </div>
       <div className="mt-6 flex flex-wrap gap-3">
@@ -37,7 +48,7 @@ export default function ChallengesStep() {
       </div>
       <div className="mt-6 text-sm text-zinc-500">
         Optional
-        <button className="ml-4 text-[#1E6E68] underline" onClick={next}>Skip</button>
+        <button className="ml-4 text-[#1E6E68] underline" onClick={next}>Skip for now</button>
       </div>
       <StepNav onBack={prev} onNext={next} />
     </div>
