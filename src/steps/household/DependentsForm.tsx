@@ -59,13 +59,11 @@ export default function DependentsForm() {
           <h1 className="text-2xl font-semibold text-zinc-800">Let's add your dependents</h1>
           <p className="mt-2 text-sm text-zinc-500">Add as many as you need. You can always edit or remove them later.</p>
           <div className="mt-4 rounded-lg bg-blue-50 border border-blue-200 p-4">
-            <h3 className="text-sm font-medium text-blue-900 mb-2">Benefits for your dependents</h3>
-            <ul className="text-sm text-blue-800 space-y-1">
-              <li>• Dependents of appropriate age can create their own accounts to access all health services</li>
-              <li>• You'll still handle insurance claims and submissions for all dependents</li>
-              <li>• Complete privacy: you cannot see what dependents do on their accounts</li>
-              <li>• Add an email to send them a direct invitation to join</li>
-            </ul>
+            <div className="text-sm text-blue-800 space-y-3">
+              <p>Your dependents can access GreenShield health services by creating their own confidential account on GreenShield+. Through this account, they'll receive a personalized onboarding experience and gain access to services such as Mental Health support, Telemedicine, Well-being resources, and more—tailored specifically to their needs.</p>
+              <p>Privacy is fully protected: your dependents cannot view your activity, and you cannot view theirs.</p>
+              <p>To make setup easy, we can send them an invitation email to create their account. Please provide the best email address to reach them.</p>
+            </div>
           </div>
         </div>
         <Doodle index={0} />
