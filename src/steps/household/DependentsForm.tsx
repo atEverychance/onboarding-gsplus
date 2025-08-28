@@ -10,6 +10,7 @@ function DepRow({
   relationship,
   dob,
   language,
+  email,
   onChange,
   onRemove,
 }: any) {
@@ -24,6 +25,7 @@ function DepRow({
           <option value="other">Other</option>
         </select>
         <input className="rounded-md border border-zinc-300 px-3 py-2" type="date" value={dob} onChange={(e)=>onChange({ dob: e.target.value })} />
+        <input className="rounded-md border border-zinc-300 px-3 py-2" type="email" placeholder="Email (optional)" value={email||""} onChange={(e)=>onChange({ email: e.target.value||undefined })} />
         <select className="rounded-md border border-zinc-300 px-3 py-2" value={language||""} onChange={(e)=>onChange({ language: e.target.value||undefined })}>
           <option value="">Care language (optional)</option>
           <option value="en">English</option>
@@ -47,14 +49,22 @@ export default function DependentsForm() {
       relationship: "child",
       dob: "",
       language: undefined,
+      email: undefined,
     })
 
   return (
     <div className="max-w-[740px]">
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-zinc-800">Let’s add your dependents</h1>
+          <h1 className="text-2xl font-semibold text-zinc-800">Let's add your dependents</h1>
           <p className="mt-2 text-sm text-zinc-500">Add as many as you need. You can always edit or remove them later.</p>
+          <div className="mt-4 rounded-lg bg-blue-50 border border-blue-200 p-4">
+            <div className="text-sm text-blue-800 space-y-3">
+              <p>Your dependents can access GreenShield health services by creating their own confidential account on GreenShield+. Through this account, they'll receive a personalized onboarding experience and gain access to services such as Mental Health support, Telemedicine, Well-being resources, and more—tailored specifically to their needs.</p>
+              <p>Privacy is fully protected: your dependents cannot view your activity, and you cannot view theirs.</p>
+              <p>To make setup easy, we can send them an invitation email to create their account. Please provide the best email address to reach them.</p>
+            </div>
+          </div>
         </div>
         <Doodle index={0} />
       </div>
