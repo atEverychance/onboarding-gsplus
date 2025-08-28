@@ -40,7 +40,7 @@ export default function NotificationsStep() {
       <div className="flex items-start justify-between">
         <div>
           <h1 className="text-2xl font-semibold text-zinc-800">How would you like to stay connected, {name}?</h1>
-          <p className="mt-2 text-zinc-600">We'll only send you important updates about your health benefits</p>
+          <p className="mt-2 text-zinc-600">We'll only send you important updates about your health care</p>
         </div>
         <Doodle index={0} />
       </div>
@@ -55,7 +55,7 @@ export default function NotificationsStep() {
           />
           <div>
             <span className="text-zinc-800 font-medium">Email notifications</span>
-            <p className="text-sm text-zinc-600">Get updates about your benefits and health resources</p>
+            <p className="text-sm text-zinc-600">Get updates about your care and health resources</p>
           </div>
         </label>
         
