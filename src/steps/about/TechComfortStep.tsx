@@ -15,9 +15,9 @@ export default function TechComfortStep() {
         <Doodle index={1} />
       </div>
       <div className="mt-6 flex gap-3">
-        <Chip label="I like simple things" selected={state.about.techComfort==="simple"} onClick={()=>setVal("simple")} />
-        <Chip label="I’m okay with most stuff" selected={state.about.techComfort==="ok"} onClick={()=>setVal("ok")} />
-        <Chip label="I love advanced features" selected={state.about.techComfort==="advanced"} onClick={()=>setVal("advanced")} />
+        <Chip label="Keep it simple for me" selected={state.about.techComfort==="simple"} onClick={()=>setVal("simple")} />
+        <Chip label="I can handle most things" selected={state.about.techComfort==="ok"} onClick={()=>setVal("ok")} />
+        <Chip label="Bring on the bells and whistles" selected={state.about.techComfort==="advanced"} onClick={()=>setVal("advanced")} />
       </div>
       <div className="mt-6 text-sm text-zinc-500">
         Optional

@@ -11,7 +11,10 @@ export default function CaregiverStep() {
   return (
     <div className="max-w-[640px]">
       <div className="flex items-start justify-between">
-        <h1 className="text-2xl font-semibold text-zinc-800">Do you regularly care for someone else?</h1>
+        <div>
+          <h1 className="text-2xl font-semibold text-zinc-800">Do you regularly care for someone else?</h1>
+          <p className="mt-2 text-sm text-zinc-500">This could be an aging parent, child, spouse, or anyone else who depends on you for support.</p>
+        </div>
         <Doodle index={0} />
       </div>
       <div className="mt-6 flex gap-3">
