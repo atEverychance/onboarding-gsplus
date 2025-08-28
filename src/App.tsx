@@ -17,7 +17,6 @@ import DependentsForm from "./steps/household/DependentsForm"
 import GoalsStep from "./steps/GoalsStep"
 import ChallengesStep from "./steps/ChallengesStep"
 import GoalsInterstitial from "./steps/interstitials/GoalsInterstitial"
-import ClaimsIntentStep from "./steps/claims/ClaimsIntentStep"
 import DirectDepositStep from "./steps/claims/DirectDepositStep"
 import NotificationsStep from "./steps/NotificationsStep"
 import ReviewStep from "./steps/ReviewStep"
@@ -40,7 +39,6 @@ function StepRenderer() {
   if (id === "goals") return <GoalsStep />
   if (id === "challenges") return <ChallengesStep />
   if (id === "interstitial.goals") return <GoalsInterstitial />
-  if (id === "claims.intent") return <ClaimsIntentStep />
   if (id === "claims.deposit") return <DirectDepositStep />
   if (id === "notifications") return <NotificationsStep />
   if (id === "review") return <ReviewStep />

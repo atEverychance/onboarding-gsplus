@@ -14,16 +14,10 @@ export const STEPS: StepDef[] = [
   { id: "about.name", label: "About you: What we should call you" },
   { id: "about.caregiver", label: "About you: Caregiving" },
   { id: "about.tech", label: "About you: Tech comfort" },
-  { id: "interstitial.aboutyou", label: "Your Health Journey", when: (ctx) => ctx.about.gender && ctx.about.ageRange },
-  { id: "goals", label: "Your goals" },
-  { id: "challenges", label: "Your challenges" },
-  { id: "interstitial.goals", label: "How we’ll support your goals", when: (ctx) => ctx.goals && ctx.goals.length > 0 },
-  { id: "claims.intent", label: "Submitting claims?" },
   {
     id: "claims.deposit",
     label: "Set up direct deposit",
     required: true,
-    when: (ctx) => ctx.claims?.willSubmitClaims === true,
   },
   { id: "household.hasDeps", label: "Household: Any dependents?" },
   {
@@ -33,6 +27,10 @@ export const STEPS: StepDef[] = [
     when: (ctx) => ctx.household.hasDependents === true,
   },
   { id: "notifications", label: "Notifications" },
+  { id: "interstitial.aboutyou", label: "Your Health Journey", when: (ctx) => ctx.about.gender && ctx.about.ageRange },
+  { id: "goals", label: "Your goals" },
+  { id: "challenges", label: "Your challenges" },
+  { id: "interstitial.goals", label: "How we'll support your goals", when: (ctx) => ctx.goals && ctx.goals.length > 0 },
   { id: "review", label: "Review and finish" },
   { id: "interstitial.services", label: "Get started" },
 ]

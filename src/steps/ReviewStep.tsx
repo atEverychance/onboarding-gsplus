@@ -7,7 +7,10 @@ export default function ReviewStep() {
   return (
     <div className="max-w-[720px]">
       <div className="flex items-start justify-between">
-        <h1 className="text-2xl font-semibold text-zinc-800">Quick check before we wrap up</h1>
+        <div>
+          <h1 className="text-2xl font-semibold text-zinc-800">Quick check before we wrap up</h1>
+          <p className="mt-2 text-sm text-zinc-500">Make sure everything looks right before we get started.</p>
+        </div>
         <Doodle index={2} />
       </div>
       <div className="mt-6 space-y-2 text-sm text-zinc-700">
@@ -16,7 +19,6 @@ export default function ReviewStep() {
         <div><strong>Household:</strong> {state.household.hasDependents ? `${state.household.dependents.length} dependents` : "No dependents"}</div>
         <div><strong>Goals:</strong> {(state.goals||[]).join(", ") || "-"}</div>
         <div><strong>Challenges:</strong> {(state.challenges||[]).join(", ") || "-"}</div>
-        <div><strong>Claims:</strong> {state.claims?.willSubmitClaims ? "Will submit" : "No/unsure"}</div>
         <div><strong>Notifications:</strong> {(state.notifications?.channels||[]).join(", ") || "-"} {state.notifications?.phone ? `(${state.notifications?.phone})` : ""}</div>
       </div>
       <div className="mt-6">

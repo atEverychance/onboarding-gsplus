@@ -11,17 +11,19 @@ export default function TechComfortStep() {
   return (
     <div className="max-w-[640px]">
       <div className="flex items-start justify-between">
-        <h1 className="text-2xl font-semibold text-zinc-800">How do you feel about technology?</h1>
+        <div>
+          <h1 className="text-2xl font-semibold text-zinc-800">How do you feel about technology?</h1>
+          <p className="mt-2 text-sm text-zinc-500">This helps us tailor your experience to your comfort level.</p>
+        </div>
         <Doodle index={1} />
       </div>
       <div className="mt-6 flex gap-3">
-        <Chip label="I like simple things" selected={state.about.techComfort==="simple"} onClick={()=>setVal("simple")} />
-        <Chip label="I’m okay with most stuff" selected={state.about.techComfort==="ok"} onClick={()=>setVal("ok")} />
-        <Chip label="I love advanced features" selected={state.about.techComfort==="advanced"} onClick={()=>setVal("advanced")} />
+        <Chip label="Keep it simple for me" selected={state.about.techComfort==="simple"} onClick={()=>setVal("simple")} />
+        <Chip label="I can handle most things" selected={state.about.techComfort==="ok"} onClick={()=>setVal("ok")} />
+        <Chip label="Bring on the bells and whistles" selected={state.about.techComfort==="advanced"} onClick={()=>setVal("advanced")} />
       </div>
       <div className="mt-6 text-sm text-zinc-500">
-        Optional
-        <button className="ml-4 text-[#1E6E68] underline" onClick={next}>Skip for now</button>
+        <button className="text-[#1E6E68] underline" onClick={next}>Skip for now</button>
       </div>
       <StepNav onBack={prev} onNext={next} />
     </div>

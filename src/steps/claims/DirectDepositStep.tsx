@@ -7,7 +7,6 @@ export default function DirectDepositStep() {
   const { state, setClaims, next, prev, completeStep } = useOnboarding()
   const c = state.claims || {}
   const [local, setLocal] = useState({
-    accountName: c.accountName || "",
     institutionNumber: c.institutionNumber || "",
     transitNumber: c.transitNumber || "",
     accountNumber: c.accountNumber || "",
@@ -15,7 +14,6 @@ export default function DirectDepositStep() {
   })
 
   const canNext =
-    local.accountName.trim() &&
     /^\d{3}$/.test(local.institutionNumber) &&
     /^\d{5}$/.test(local.transitNumber) &&
     /^\d{7,12}$/.test(local.accountNumber) &&
@@ -33,17 +31,9 @@ export default function DirectDepositStep() {
         <h1 className="text-2xl font-semibold text-zinc-800">Set up direct deposit</h1>
         <Doodle index={1} />
       </div>
-      <div className="mt-2 text-sm text-zinc-500">Payments go straight to your account—fast and secure.</div>
+      <div className="mt-2 text-sm text-zinc-500">Providers submit 87% of claims on behalf of members. Providing this info helps get you paid up to two weeks faster!</div>
 
       <div className="mt-6 grid gap-4 max-w-md">
-        <label className="text-sm text-zinc-700">
-          Name on account
-          <input
-            className="mt-1 w-full rounded-md border border-zinc-300 px-3 py-2"
-            value={local.accountName}
-            onChange={(e) => setLocal({ ...local, accountName: e.target.value })}
-          />
-        </label>
         <div className="grid grid-cols-3 gap-3">
           <label className="text-sm text-zinc-700">
             Institution (3)
