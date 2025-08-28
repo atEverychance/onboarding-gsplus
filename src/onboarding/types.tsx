@@ -22,6 +22,7 @@ export type Dependent = {
   relationship: "spouse" | "child" | "other"
   dob: string
   language?: Language
+  email?: string
 }
 
 export type AboutYou = {

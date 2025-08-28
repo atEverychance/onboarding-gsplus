@@ -10,6 +10,7 @@ function DepRow({
   relationship,
   dob,
   language,
+  email,
   onChange,
   onRemove,
 }: any) {
@@ -24,6 +25,7 @@ function DepRow({
           <option value="other">Other</option>
         </select>
         <input className="rounded-md border border-zinc-300 px-3 py-2" type="date" value={dob} onChange={(e)=>onChange({ dob: e.target.value })} />
+        <input className="rounded-md border border-zinc-300 px-3 py-2" type="email" placeholder="Email (optional)" value={email||""} onChange={(e)=>onChange({ email: e.target.value||undefined })} />
         <select className="rounded-md border border-zinc-300 px-3 py-2" value={language||""} onChange={(e)=>onChange({ language: e.target.value||undefined })}>
           <option value="">Care language (optional)</option>
           <option value="en">English</option>
@@ -47,14 +49,24 @@ export default function DependentsForm() {
       relationship: "child",
       dob: "",
       language: undefined,
+      email: undefined,
     })
 
   return (
     <div className="max-w-[740px]">
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-zinc-800">Let’s add your dependents</h1>
+          <h1 className="text-2xl font-semibold text-zinc-800">Let's add your dependents</h1>
           <p className="mt-2 text-sm text-zinc-500">Add as many as you need. You can always edit or remove them later.</p>
+          <div className="mt-4 rounded-lg bg-blue-50 border border-blue-200 p-4">
+            <h3 className="text-sm font-medium text-blue-900 mb-2">Benefits for your dependents</h3>
+            <ul className="text-sm text-blue-800 space-y-1">
+              <li>• Dependents of appropriate age can create their own accounts to access all health services</li>
+              <li>• You'll still handle insurance claims and submissions for all dependents</li>
+              <li>• Complete privacy: you cannot see what dependents do on their accounts</li>
+              <li>• Add an email to send them a direct invitation to join</li>
+            </ul>
+          </div>
         </div>
         <Doodle index={0} />
       </div>
