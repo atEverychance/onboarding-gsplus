@@ -3,6 +3,7 @@ import Header from "./components/Header"
 import LeftOverview from "./components/LeftOverview"
 import TopProgress from "./components/TopProgress"
 import { OnboardingProvider, useOnboarding } from "./onboarding/OnboardingContext"
+import WelcomeStep from "./steps/WelcomeStep"
 import LanguageStep from "./steps/LanguageStep"
 import AgeStep from "./steps/about/AgeStep"
 import GenderStep from "./steps/about/GenderStep"
@@ -25,6 +26,7 @@ import ServicesInterstitial from "./steps/interstitials/ServicesInterstitial"
 function StepRenderer() {
   const { state } = useOnboarding()
   const id = state.currentStepId
+  if (id === "welcome") return <WelcomeStep />
   if (id === "language") return <LanguageStep />
   if (id === "about.gender") return <GenderStep />
   if (id === "about.age") return <AgeStep />
