@@ -46,6 +46,26 @@ export default function ServicesInterstitial() {
             </p>
           </div>
         </div>
+        
+        <div className="flex items-start gap-3 p-4 bg-zinc-50 rounded-lg">
+          <span className="text-2xl">📋</span>
+          <div>
+            <p className="font-medium text-zinc-800">Submit Claims</p>
+            <p className="text-sm text-zinc-700 mt-1">
+              Fast and easy online claim submission with direct deposit setup for payments up to two weeks faster.
+            </p>
+          </div>
+        </div>
+        
+        <div className="flex items-start gap-3 p-4 bg-zinc-50 rounded-lg">
+          <span className="text-2xl">🌱</span>
+          <div>
+            <p className="font-medium text-zinc-800">Well-being Platform</p>
+            <p className="text-sm text-zinc-700 mt-1">
+              Personalized resources and goal-setting tools to help you form healthy habits and live a healthier, happier life.
+            </p>
+          </div>
+        </div>
       </div>
       
       <div className="mt-6 p-4 bg-green-50 rounded-lg">
