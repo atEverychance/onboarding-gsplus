@@ -33,7 +33,7 @@ export default function DirectDepositStep() {
         <h1 className="text-2xl font-semibold text-zinc-800">Set up direct deposit</h1>
         <Doodle index={1} />
       </div>
-      <div className="mt-2 text-sm text-zinc-500">Payments go straight to your account—fast and secure.</div>
+      <div className="mt-2 text-sm text-zinc-500">Providers submit 87% of claims on behalf of members. Providing this info helps get you paid up to two weeks faster!</div>
 
       <div className="mt-6 grid gap-4 max-w-md">
         <label className="text-sm text-zinc-700">
