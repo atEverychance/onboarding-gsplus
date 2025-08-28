@@ -11,7 +11,7 @@ export default function ServicesInterstitial() {
       <div className="flex items-start justify-between">
         <div>
           <h1 className="text-2xl font-semibold text-zinc-800">Welcome to GreenShield+, {name}!</h1>
-          <p className="mt-2 text-lg text-zinc-600">Your benefits are ready to go. 🌟</p>
+          <p className="mt-2 text-lg text-zinc-600">Your care is ready to go. 🌟</p>
         </div>
         <Doodle index={0} />
       </div>
@@ -40,7 +40,7 @@ export default function ServicesInterstitial() {
         <div className="flex items-start gap-3 p-4 bg-zinc-50 rounded-lg">
           <span className="text-2xl">💊</span>
           <div>
-            <p className="font-medium text-zinc-800">Pharmacy Benefits</p>
+            <p className="font-medium text-zinc-800">Pharmacy Care</p>
             <p className="text-sm text-zinc-700 mt-1">
               Prescription coverage and convenient pharmacy services to keep you healthy and save you money.
             </p>
@@ -50,7 +50,7 @@ export default function ServicesInterstitial() {
       
       <div className="mt-6 p-4 bg-green-50 rounded-lg">
         <p className="text-sm text-zinc-700">
-          🎉 You're all set! Your GreenShield+ benefits are now active and ready to support your health journey.
+          🎉 You're all set! Your GreenShield+ care is now active and ready to support your health journey.
         </p>
       </div>
       
