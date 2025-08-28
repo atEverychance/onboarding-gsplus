@@ -12,7 +12,7 @@ const initialState: OnboardingState = {
   challenges: [],
   claims: {},
   notifications: {},
-  currentStepId: "language",
+  currentStepId: "welcome",
   completed: {},
   doodleTheme: "neutral",
 }

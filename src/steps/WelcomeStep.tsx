@@ -1,17 +1,19 @@
-import { useOnboarding } from "../../onboarding/OnboardingContext"
-import StepNav from "../../components/ui/StepNav"
-import Doodle from "../../components/Doodle"
+import { useOnboarding } from "../onboarding/OnboardingContext"
+import Doodle from "../components/Doodle"
 
-export default function ServicesInterstitial() {
-  const { state, next, prev } = useOnboarding()
-  const name = state.about.preferredName || "you"
+export default function WelcomeStep() {
+  const { next, goTo } = useOnboarding()
+
+  const handleSkip = () => {
+    goTo("interstitial.services")
+  }
 
   return (
     <div className="max-w-[640px]">
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-zinc-800">Welcome to GreenShield+, {name}!</h1>
-          <p className="mt-2 text-lg text-zinc-600">Your care is ready to go. 🌟</p>
+          <h1 className="text-2xl font-semibold text-zinc-800">Welcome to GreenShield+!</h1>
+          <p className="mt-2 text-lg text-zinc-600">You and your dependents now have access to comprehensive care. 🌟</p>
         </div>
         <Doodle index={0} />
       </div>
@@ -46,15 +48,38 @@ export default function ServicesInterstitial() {
             </p>
           </div>
         </div>
+        
+        <div className="flex items-start gap-3 p-4 bg-zinc-50 rounded-lg">
+          <span className="text-2xl">🌱</span>
+          <div>
+            <p className="font-medium text-zinc-800">Well-being Support</p>
+            <p className="text-sm text-zinc-700 mt-1">
+              Resources and programs to support your overall wellness and healthy lifestyle goals.
+            </p>
+          </div>
+        </div>
       </div>
       
       <div className="mt-6 p-4 bg-green-50 rounded-lg">
         <p className="text-sm text-zinc-700">
-          🎉 You're all set! Your GreenShield+ care is now active and ready to support your health journey.
+          We'd like to do a brief onboarding to personalize your experience and help you get the most out of your care.
         </p>
       </div>
       
-      <StepNav onBack={prev} onNext={next} nextLabel="Get started" hideSaveLink={true} />
+      <div className="mt-6 flex gap-3">
+        <button
+          onClick={handleSkip}
+          className="px-4 py-2 text-zinc-600 hover:text-zinc-800 underline"
+        >
+          Skip for now
+        </button>
+        <button
+          onClick={next}
+          className="flex-1 px-4 py-2 bg-[#1E6E68] text-white rounded-lg hover:bg-[#1a5f5a] transition-colors"
+        >
+          Let's personalize your experience
+        </button>
+      </div>
     </div>
   )
 }

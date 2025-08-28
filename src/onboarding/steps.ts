@@ -6,6 +6,7 @@ export type StepDef = {
 }
 
 export const STEPS: StepDef[] = [
+  { id: "welcome", label: "Welcome", required: true },
   { id: "language", label: "Language", required: true },
   { id: "about.gender", label: "About you: How you identify" },
   { id: "about.age", label: "About you: Your age range" },
