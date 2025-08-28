@@ -13,7 +13,10 @@ export default function PreferredNameStep() {
   return (
     <div className="max-w-[640px]">
       <div className="flex items-start justify-between">
-        <h1 className="text-2xl font-semibold text-zinc-800">What should we call you?</h1>
+        <div>
+          <h1 className="text-2xl font-semibold text-zinc-800">What should we call you?</h1>
+          <p className="mt-2 text-sm text-zinc-500">If you go by a different name, add it here.</p>
+        </div>
         <Doodle index={1} />
       </div>
       <input
@@ -22,7 +25,6 @@ export default function PreferredNameStep() {
         placeholder="Preferred name"
         className="mt-6 w-full rounded-xl border border-zinc-300 px-4 py-3 text-base"
       />
-      <div className="mt-2 text-sm text-zinc-500">If you go by a different name, add it here. Optional.</div>
       <StepNav onBack={prev} onNext={save} />
     </div>
   )

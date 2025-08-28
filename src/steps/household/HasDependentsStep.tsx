@@ -12,14 +12,15 @@ export default function HasDependentsStep() {
   return (
     <div className="max-w-[640px]">
       <div className="flex items-start justify-between">
-        <h1 className="text-2xl font-semibold text-zinc-800">Do you have dependents on your plan?</h1>
+        <div>
+          <h1 className="text-2xl font-semibold text-zinc-800">Do you have dependents on your plan?</h1>
+          <p className="mt-2 text-sm text-zinc-500">Not sure? You can add them later.</p>
+        </div>
         <Doodle index={2} />
       </div>
       <div className="mt-6 flex gap-3">
         <Chip label="Yes" selected={state.household.hasDependents===true} onClick={()=>setVal(true)} />
         <Chip label="No" selected={state.household.hasDependents===false} onClick={()=>setVal(false)} />
-      <div className="mt-6 text-sm text-zinc-500">Not sure? You can add them later.</div>
-
       </div>
       <StepNav onBack={prev} onNext={next} />
     </div>
